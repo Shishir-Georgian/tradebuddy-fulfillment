@@ -18,7 +18,6 @@ clyent==1.2.1
 constantly==15.1.0
 cssselect==1.1.0
 daal4py==2023.1.1
-datashape==0.5.4
 diffusers==0.32.2
 et-xmlfile==1.1.0
 fire==0.7.0
