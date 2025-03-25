@@ -16,7 +16,7 @@ def webhook():
     # Get the intent name and parameters
     intent_name = req.get("queryResult", {}).get("intent", {}).get("displayName", "")
     parameters = req.get("queryResult", {}).get("parameters", {})
-    stock_symbol = parameters.get("stock_symbol", "").upper()
+    stock_symbol = parameters.get("Stock_symbol", "").upper()
 
     # Check the intent and fetch stock price
     if intent_name == "Get_Stock_Price" and stock_symbol:
