@@ -18,6 +18,10 @@ def webhook():
     parameters = req.get("queryResult", {}).get("parameters", {})
     stock_symbol = parameters.get("Stock_symbol", "").upper()
 
+    # Debug print to Render logs (optional)
+    print("Intent received:", intent_name)
+    print("Stock symbol received:", stock_symbol)
+
     # Check the intent and fetch stock price
     if intent_name == "Get_Stock_Price" and stock_symbol:
         try:
@@ -25,6 +29,7 @@ def webhook():
             price = stock.history(period="1d")["Close"].iloc[-1]
             response_text = f"The current stock price of {stock_symbol} is ${price:.2f}."
         except Exception as e:
+            print("Error fetching stock data:", str(e))
             response_text = f"Sorry, I couldn't fetch the stock price for {stock_symbol}."
     else:
         response_text = "I'm here to assist with trading queries!"
